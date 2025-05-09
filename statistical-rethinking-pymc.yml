@@ -1,4 +1,4 @@
-name: statistical-rethinking-2023
+name: statistical-rethinking-pymc
 channels:
   - conda-forge
 dependencies:
