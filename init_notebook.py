@@ -10,6 +10,9 @@ import utils as utils
 from scipy import stats as stats
 from matplotlib import pyplot as plt
 
+import pytensor
+pytensor.config.cxx = '/usr/bin/clang++'
+
 
 # ---
 # Print imports / aliases
