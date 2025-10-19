@@ -71,5 +71,5 @@ import warnings
 warnings.filterwarnings("ignore")
 
 from matplotlib import style
-STYLE = "statistical-rethinking-2023.mplstyle"
+STYLE = "statistical-rethinking-pymc.mplstyle"
 style.use(STYLE)
