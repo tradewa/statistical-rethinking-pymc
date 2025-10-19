@@ -8,6 +8,7 @@ import networkx as nx
 from matplotlib import pyplot as plt
 from pathlib import Path
 from typing import List, Union, Callable
+import inspect
 
 HERE = Path(".")
 
@@ -211,6 +212,12 @@ def plot_2d_function(xrange, yrange, func, ax=None, **countour_kwargs):
         **countour_kwargs,
     )
 
+def get_variable_name(var):
+    frame = inspect.currentframe().f_back
+    for name, value in frame.f_locals.items():
+        if value is var:
+            return name
+    return None
 
 def create_variables_dataframe(*variables: List[np.ndarray]) -> pd.DataFrame:
     """Converts a list of numpy arrays to a dataframe; infers column names from
