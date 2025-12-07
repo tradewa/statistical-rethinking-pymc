@@ -13,6 +13,23 @@ import graphviz as gr
 import networkx as nx
 from matplotlib import pyplot as plt
 
+import shutil
+import subprocess
+
+# Ensure Graphviz binaries are visible when this module is imported
+os.environ["PATH"] = "/opt/homebrew/bin:" + os.environ.get("PATH", "")
+os.environ["GRAPHVIZ_DOT"] = "/opt/homebrew/bin/dot"
+
+# Optional: warn if dot still isn’t found
+if not shutil.which("dot"):
+    print("Warning: graphviz 'dot' not found on PATH")
+
+# Optional: print version for sanity
+try:
+    subprocess.run(["dot", "-V"], check=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+except Exception:
+    pass
+
 
 # ---- PATHS ----
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
